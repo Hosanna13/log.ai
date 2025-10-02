@@ -1,0 +1,58 @@
+.reflectionPage{
+    display: flex; 
+    min-height: calc(100vh - 72px);
+    justify-content: center;
+    align-items: center;
+    background-color: #1D1D1F;
+}
+.reflectionInput{
+    flex: 1; 
+    padding: 3rem;
+    max-width: 50%;
+}
+.editableTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    background: transparent;
+    margin-bottom: 0.5rem;
+    color:#898990;
+    outline: none;
+    border: none;
+}
+.editableTitle:focus, .editableTitle:hover {
+    color: #FBFBFD;
+}
+.reflectionTextarea {
+    width: 100%; 
+    min-height: 300px;
+    background-color: transparent;
+    border: none;
+    color: #FBFBFD;
+    font-size: 1.2rem;
+    resize: vertical;
+    outline: none;
+    font-family: 'SF Pro Text', sans-serif;
+    margin-bottom: 2rem;
+}
+
+.reflectionTextarea::placeholder {
+    color: #898990;
+}
+.submitButton {
+    padding: 0.75rem 2rem; 
+    font-weight: bold;
+    background-color: #f4c542;
+    border-radius: 20px;
+    color: #1d1d1f;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+    background-color: #e5b631;
+    cursor: pointer;
+}
+.aiSummary {
+
+}
+

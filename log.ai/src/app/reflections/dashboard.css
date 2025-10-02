@@ -1,0 +1,21 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.statement {
+    color: #FBFBFD; 
+    font-size: 3rem;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.statement:hover {
+    color: #f4c542;
+    cursor: default;
+}
