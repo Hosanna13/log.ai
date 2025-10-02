@@ -4,4 +4,4 @@ Log.ai, is a web application where one can log reflections, study notes, or prog
 ## Technolgoies: 
 - Next.js
 - Node.js
-- Chatgpt
+- Chatgpt 
