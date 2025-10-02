@@ -79,3 +79,25 @@ This project is designed to learn:
 - Historical pattern analysis
 
 ## 🏗️ Project Structure
+log.ai/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx                 # Welcome/home page
+│   │   ├── reflections/
+│   │   │   ├── layout.tsx           # Shared layout with nav
+│   │   │   ├── page.tsx             # Dashboard (grid view)
+│   │   │   ├── new/
+│   │   │   │   └── page.tsx         # Create new reflection
+│   │   │   └── [id]/
+│   │   │       └── page.tsx         # View/edit specific reflection
+│   │   └── api/
+│   │       ├── embeddings/
+│   │       │   └── route.ts         # Generate embeddings
+│   │       └── analyze/
+│   │           └── route.ts         # Find similar reflections
+│   ├── components/                   # Reusable UI components
+│   │   └── ReflectionNav.tsx
+│   └── lib/                         # Utilities and types
+│       ├── storage.ts               # Data persistence layer
+│       └── types.ts                 # TypeScript interfaces
+└── public/                          # Static assets
