@@ -15,10 +15,10 @@ A reflection journal with AI-powered connection discovery. Write your thoughts, 
 - Next.js 14 (App Router)
 - React 18
 - TypeScript
-- Tailwind CSS (utility-first styling)
+- Tailwind CSS 
 
 **Backend:**
-- Next.js API Routes (serverless functions)
+- Node.js API Routes 
 - OpenAI GPT-4-mini (text analysis & insights)
 - OpenAI Embeddings API (semantic search)
 
@@ -42,17 +42,12 @@ This project is designed to learn:
    - Implementing cosine similarity for finding related content
    - Prompt engineering for meaningful AI responses
 
-3. **Modern React Patterns**
-   - useState and useEffect hooks
-   - TypeScript type safety
-   - Component composition and reusability
-
-4. **UI/UX Design**
+3. **UI/UX Design**
    - Tailwind CSS utility classes
    - Responsive layouts with CSS Grid/Flexbox
    - Interactive editable content (contentEditable)
-
-5. **Data Management**
+   
+4. **Data Management**
    - CRUD operations (Create, Read, Update, Delete)
    - Local storage → Cloud database migration
    - Handling asynchronous data operations
