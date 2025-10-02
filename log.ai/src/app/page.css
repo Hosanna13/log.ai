@@ -1,0 +1,81 @@
+@import url('./globals.css');
+
+.pageContainer{
+    display: flex;
+    min-height: calc(100vh - 72px);
+    justify-content: center;
+    align-items: center;
+    background-color: #1D1D1F;
+}
+
+.hero {
+    text-align: center;
+}
+
+.decode-text {
+    font-size: 5rem;
+    font-weight: bolder;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    min-width: 100%;
+}
+.data-title{
+    align-items: center;
+}
+
+/* default shows title */
+.decode-text::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 50%;
+    transform:translateX(-50%);
+    top: 0;
+    width: auto;
+    color: #FBFBFD;
+    white-space: nowrap;
+}
+
+/* hover replaces content with subtitle + decoder effect */
+.decode-text:hover::after {
+    content: attr(data-subtitle);
+    border-right: 2px solid #f4c542;
+    animation: typing 2s steps(44, end) forwards;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    left: 50%;
+    transform:translateX(-50%);
+}
+
+@keyframes typing {
+    from { 
+        width: 0; 
+    }
+    to { 
+        width: 100%;
+        max-width: max-content;
+    }
+}
+
+/* Button always visible */
+.start-button {
+    padding: 0.75rem 3rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #f4c542;
+    border-radius: 30px;
+    color: #1d1d1f;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.start:hover {
+    background-color: #e0b538;
+}

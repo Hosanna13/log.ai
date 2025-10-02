@@ -1,0 +1,39 @@
+.reflection-nav {
+    background-color: #1d1d1f; 
+    padding: 1rem 2rem; 
+    display: flex; 
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-icon-button {
+    text-decoration: none;
+}
+
+.nav-icon {
+    font: bolder 30px SF Pro Text, sans-serif;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background-color: #4a4a4a;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    color: #f4c542;
+    cursor: pointer;
+    transition: background-color 0,2s;
+}
+
+.nav-icon:hover {
+    background-color: #5a5a5a;
+}
+
+.nav-title {
+    text-decoration: none;
+    font: bolder 24px SF Pro Text, sans-serif;
+    color: #FBFBFD;
+}
+
+.nav-title:hover {
+    text-decoration: underline  #f4c542;
+}
