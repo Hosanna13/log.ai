@@ -53,6 +53,30 @@
     cursor: pointer;
 }
 .aiSummary {
-
+    max-width: 50%;
+    min-height: calc(100vh - 72px);
+    padding: 1rem, 2rem;
+    border-radius: 20px;
+    justify-content: center;
+}
+.aiSummary h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #FBFBFD;
+}
+.aiSummary p {
+    line-height: 1.6;
+    color: #FBFBFD;
+    padding-bottom: 50px;
 }
 
+.closeButton {
+    padding: 0.75rem 2rem; 
+    font-weight: bold;
+    background-color: #f4c542;
+    border-radius: 20px;
+    color: #1d1d1f;
+    cursor: pointer;
+    transition: background-color 0.2s;
+} 
