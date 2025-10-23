@@ -5,11 +5,14 @@
     align-items: center;
     background-color: #1D1D1F;
 }
+
+
 .reflectionInput{
     flex: 1; 
     padding: 3rem;
     max-width: 50%;
 }
+/* Styles for editable title and textarea */
 .editableTitle {
     font-size: 3rem;
     font-weight: bold;
@@ -38,6 +41,7 @@
 .reflectionTextarea::placeholder {
     color: #898990;
 }
+/* Styles for submit button */
 .submitButton {
     padding: 0.75rem 2rem; 
     font-weight: bold;
@@ -52,7 +56,125 @@
     background-color: #e5b631;
     cursor: pointer;
 }
-.aiSummary {
 
+/* Styles for AI Summary Section */
+.aiSummary {
+    display: block;
+    min-height: calc(100vh - 72px);
+    justify-content: center;
+    resize: vertical;
+    font-family: 'SF Pro Text', sans-serif;
+    max-width: 50%;
+}
+.aiSummary h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
+.aiSummary p {
+    font-size: 1rem;
+}
+
+.aiSummary h2:focus, .aiSummary h2:hover, .aiSummary p:focus, .aiSummary p:hover {
+    color: #f4c542;
+}
+
+/* Editor Content Styles */
+.editorContent > div {
+    border: none;
+    outline: none;
+    color:#898990;
+    min-height: 200px;
+    padding: 10px;
+}
+
+.editorContent  h1:focus, .editorContent h1:hover, h2:focus, h2:hover, h3:focus, h3:hover, p:focus, p:hover, li:focus, li:hover {
+    border: none;
+    outline: none;
+    color:#FBFBFD;
+}
+.editorContent h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.editorContent h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.editorContent h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.editorContent ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0.5em 0;
+}
+
+.editorContent ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin: 0.5em 0;
+}
+
+/* Task List Styles */
+.editorContent ul[data-type="taskList"] {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .editorContent li[data-type="taskItem"] {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .editorContent li[data-type="taskItem"] > label {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .editorContent li[data-type="taskItem"] > label > span {
+    display: none; /* hides the extra span Tiptap inserts */
+  }
+  
+  .editorContent li[data-type="taskItem"] > div {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  
+
+/* Code Block Styles */
+.editorContent pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    margin: 1em 0;
+}
+
+.editorContent code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.editorContent pre code {
+    background: transparent;
+    padding: 0;
+}
