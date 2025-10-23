@@ -60,11 +60,13 @@ This project is designed to learn:
 - Basic routing structure
 - Navigation component
 - Mock AI response simulation
+- Live Markdown
 
 **🚧 In Progress:**
 - Data persistence (localStorage)
 - Dashboard grid display
 - OpenAI API integration
+- User Autentication Page
 
 **📅 Planned:**
 - Embedding generation for reflections
