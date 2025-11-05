@@ -2,8 +2,8 @@
 
 A reflection journal with AI-powered connection discovery. Write your thoughts, and let AI find patterns across your past reflections to help you see how your ideas connect and evolve over time. 
 
-## Backend
-Using ** MongoDB ** database, since it is a simple application.
+## 🧱 Backend
+Using **MongoDB** database, since it is a simple application.
 
 ### Collections
 **Users Collection** 
@@ -23,6 +23,7 @@ Using ** MongoDB ** database, since it is a simple application.
 - **updatedAt**: (Date) timestamp of the last Note update 
 
 ### Visual Diagram 
+note to self, upload this in figma (covert it)
 +-------------------+      +-------------------+
 |     users         |      |       Note        |
 +-------------------+      +-------------------+
