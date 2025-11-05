@@ -1,0 +1,109 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const { ObjectId } = require("mongodb");
+
+// init app 
+const app = express();
+
+// middleware 
+app.use(express.json()); 
+app.use(cors());
+
+// connection 
+mongoose.connect("mongodb://localhost:27017/logai", [useNewUrlParser: true, useUnifiedTopology: true])
+.then(() => { console.log("Connected to MongoDB"); })
+.catch((err) => { console.log("Error connecting to MongoDB:", err); });
+
+const noteSchema = new  mongoose.Schema ({
+    id: { type: ObjectId, required: true },
+    userId: { type: ObjectId, required: false }, // optional for now
+    title: { type: String, required: true},
+    description: { type: String, required: false },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+})
+
+const Note = mongoose.model("Note", noteSchema);
+
+// Crud opperastions for notes 
+// get
+app.get("/notes", async (req, res) => {
+    try {
+       // const notes = await Note.find({ userId: req.user.id });
+        const notes = await Note.find();
+        console.log('Fetched notes:', notes);
+        res.json(notes);
+    }
+    catch(error){
+        console.error('Error fetching notes:', error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+// POST
+app.post("/notes", async (req, res) => {
+    try {
+        if (!req.body.title) {
+            return res.status(400).json({ message: "Title is required" });
+            res.status(400).json({ message: "Title is required" });
+        }
+
+        const newNote = new Note(req.body);
+        await newNote.save();
+
+        console.log('Created new note:', newNote);
+        res.status(201).json(newNote);
+    } 
+    catch(error) {
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+// PUT
+app.put("/notes/:id", async (req, res) => {
+    try {
+        const { id }  = req.params;
+        const updatedNote = await Note.findByIdAndUpdate(id, {
+            ...req.body,
+            updatedAt: Date.now()
+        }, { new: true} );
+
+        if (!updatedNote) {
+            console.warn('Note not found for update:', id);
+            return res.status(404).json({ message: "Note not found" });
+        }
+
+        console.log('Updated note:', updatedNote);
+        res.json( {message: "Note updated successfully" , updatedNote});
+    }
+    catch (error) {
+        console.error('Error updating note:', error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+// DEL
+app.delete("/notes/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedNote = await Note.findByIdAndDelete(id);
+        if (!deletedNote) {
+            console.warn('Note not found for deletion:', id);
+            return res.status(404).json({ message: "Note not found" });
+        }
+        console.log('Deleted note:', deletedNote);
+        res.json({ message: "Note deleted successfully" }, deletedNote);
+    
+    }
+    catch (error) {
+        console.error('Error deleting note:', error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+// server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
