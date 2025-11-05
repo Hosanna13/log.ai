@@ -1,28 +1,50 @@
 "use client";
 import { useState } from 'react';
 import styles from "./page.module.css";
-import ReactMarkdown from 'react-markdown';
-// TODO add markdown 
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Typography from "@tiptap/extension-typography";
+import TaskList from '@tiptap/extension-task-list';
+import TaskItem from '@tiptap/extension-task-item';
+
+
 
 export default function NewReflection() {
     const [title, setTitle] = useState("Page Title");
-    const [reflectionText, setReflectionText] = useState("");
     const [aiSummary, setAiSummary] = useState("");
-    const [aiSummaryTitle, setAiSummaryTitle] = useState("");
-    const [isopen, setOpen] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+    const [editorContent, setEditorContent] = useState("");
 
     console.log("Rendering NewReflection component");
 
-    const handleClose = async () => {
-        setOpen(false);
-        console.log("AI summary closed by user.");
+    const editor = useEditor({
+        extensions: [
+            StarterKit.configure({
+                heading: {
+                    levels: [1, 2, 3, 4, 5, 6],
+                },
+            }),
+            Typography,TaskList, TaskItem.configure({ nested: true, }),
+        ],
+        content: "",
+        onUpdate: ({ editor }) => {
+            const json = editor.getJSON();
+            setEditorContent(JSON.stringify(json));
+        },
+        immediatelyRender: false,
+    });
+    
+    // Add this after the editor is created
+    if (editor) {
+        console.log("Extensions loaded:", editor.extensionManager.extensions.map(e => e.name));
     }
+
+    console.log("Editor object:", editor);
 
     const handleSubmit = async () => {
         console.log("Submit clicked!");
-        console.log("Title:", title);
-        console.log("Reflection Text:", reflectionText);
+        console.log("Title: ", title);
+        console.log("Editable Text: ", editorContent);
         
 
         // TODO - call API to get AI summary
@@ -32,18 +54,14 @@ export default function NewReflection() {
         // Simulate an API call with a timeout (1 Second)
         setTimeout(() => {
             setAiSummary("This is a simulated AI summary.");
-            setAiSummaryTitle("AI Summary Title");
             setIsLoading(false);
-            setOpen(true);
         }, 1000);
     }
     const handleTitleChange = (e: React.FocusEvent<HTMLHeadingElement>) => {
         setTitle(e.currentTarget.textContent || ""); // Use textContent for contentEditable elements
     }
+    
 
-    const handleReflectionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setReflectionText(e.target.value || "");
-    }
 
     return (
         <div className= {styles.reflectionPage}> 
@@ -59,18 +77,17 @@ export default function NewReflection() {
                 </h1>
 
                 {/* Reflection Text */}
-                <textarea
-                    value={reflectionText}
-                    onChange={handleReflectionChange}
-                    placeholder="Write your reflection here..."
-                    className={styles.reflectionTextarea}
+
+                <EditorContent 
+                    editor={editor}
+                    className={styles.editorContent}
                 />
 
                 {/* Submit Button */}
 
                 <button 
                     onClick={handleSubmit}
-                    disabled={!reflectionText || isLoading}
+                    disabled={!editorContent || isLoading}
                     className={styles.submitButton}
                 > 
                     {isLoading ? "Analyzing..." : "Analyze with AI"} 
@@ -78,27 +95,12 @@ export default function NewReflection() {
             </div>
 
             {/* AI Summary Display */}
-            {isopen && !isLoading && aiSummary && (
-                <div className={styles.aiSummary}> 
-                    <h2> {aiSummaryTitle} </h2>
-                    <p> {aiSummary} </p>
-                    <button 
-                        onClick={handleClose}
-                        className={styles.closeButton}
-                    >
-                        Close AI Summary
-                    </button>
-
-                </div>
-            )}
-            {/*
             {aiSummary && (
                 <div className={styles.aiSummary}>
-                    <h2> {aiSummaryTitle} </h2>
+                    <h2>AI Summary</h2>
                     <p>{aiSummary}</p>
                 </div>
             )}
-            */}
         </div>
     );
 }
