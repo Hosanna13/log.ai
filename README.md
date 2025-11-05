@@ -63,9 +63,9 @@ This project is designed to learn:
 - Live Markdown
 
 **🚧 In Progress:**
-- Data persistence (localStorage)
+- Data persistence (MongoldB)
 - Dashboard grid display
-- OpenAI API integration
+- OpenAI API integration + search
 - User Autentication Page
 
 **📅 Planned:**
