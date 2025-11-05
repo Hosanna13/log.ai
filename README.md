@@ -1,6 +1,6 @@
 # log.ai
 
-A reflection journal with AI-powered connection discovery. Write your thoughts, and let AI find patterns across your past reflections to help you see how your ideas connect and evolve over time.
+A reflection journal with AI-powered connection discovery. Write your thoughts, and let AI find patterns across your past reflections to help you see how your ideas connect and evolve over time. 
 
 ## 🎯 What It Does
 
