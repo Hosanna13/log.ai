@@ -1,0 +1,17 @@
+{
+  "name": "log.ai-backend",
+  "version": "1.0.0",
+  "description": "A reflection journal with AI-powered connection discovery. Write your thoughts, and let AI find patterns across your past reflections to help you see how your ideas connect and evolve over time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3",
+    "nodemon": "^3.1.10"
+  }
+}
