@@ -2,7 +2,7 @@ const Note = require('../models/Note');
 
 exports.getNotes = async (req, res) => {
     try {
-        const notes = await Note.find();
+        const notes = await Note.find({userId: req.userId});
         res.json(notes);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching notes' });
@@ -11,7 +11,7 @@ exports.getNotes = async (req, res) => {
 
 exports.getNotebyId = async (req, res) => {
     try {
-        const note = await Note.findById(req.params.id);
+        const note = await Note.findOne({_id: req.params.id, userId: req.userId});
         if (!note) {
             return res.status(404).json({ message: 'Note not found' });
         }
@@ -28,7 +28,7 @@ exports.createNote = async (req, res) => {
             return res.status(400).json({ message: 'Title is required' });
         }
 
-        const newNote = await Note.create({ title, description, userId});
+        const newNote = await Note.create({ title, description, userId: req.userId });
         res.status(201).json(newNote);
 
     }
@@ -39,7 +39,8 @@ exports.createNote = async (req, res) => {
 
 exports.updateNote = async (req, res) => {
     try {
-        const updateNote = await Note.findByIdAndUpdate( req.params.id, req.body, { new: true });
+        const updateNote = await Note.findOneAndUpdate({_id: req.params.id, userId: req.userId},
+             req.body, {new: true} );
         if (!updateNote) {
             return res.status(404).json({ message: 'Note not found' });
         }
@@ -52,7 +53,7 @@ exports.updateNote = async (req, res) => {
 
 exports.deleteNote = async (req, res) => {
     try {
-        const deltedNote = await Note.findByIdAndDelete(req.params.id);
+        const deltedNote = await Note.findByIdAndDelete({_id: req.params.id, userId: req.userId});
         if (!deltedNote) {
             return res.status(404).json({ message: 'Note not found' });
         }
