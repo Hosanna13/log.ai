@@ -49,7 +49,7 @@ This project is designed to learn:
    
 4. **Data Management**
    - CRUD operations (Create, Read, Update, Delete)
-   - Local storage → Cloud database migration
+   - MongodB
    - Handling asynchronous data operations
 
 ## 📋 Current Status

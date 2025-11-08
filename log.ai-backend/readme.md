@@ -24,3 +24,18 @@ Using **MongoDB** database, since it is a simple application.
 
 ### Visual Diagram 
 [`figma link here 😄`](https://www.figma.com/board/wWowLsD7iALstwk0Uev7XC/Welcome-to-FigJam?node-id=0-1&t=uiq2VUueS5eSe7D7-1)
+
+
+## 📋 Current Status
+**✅ Completed:**
+- Data models for user and note collections 
+- server initialization 
+- Note Model
+- 
+**🚧 In Progress:**
+- User Model 
+- User authentication 
+
+**📅 Planned:**
+- Deployment
+- Frontend Integration 

@@ -12,6 +12,7 @@ export default function Home() {
       </h1>
       <Link href="/reflections/new">
         <button className="start-button">Add New Log</button>
+        {/* TODO - add welecome screen */}
       </Link>
       </div>
     </div>
