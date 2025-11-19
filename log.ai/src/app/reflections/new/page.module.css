@@ -3,7 +3,7 @@
     min-height: calc(100vh - 72px);
     justify-content: center;
     align-items: center;
-    background-color: #1D1D1F;
+    background-color: var(--background);
 }
 
 
@@ -18,19 +18,19 @@
     font-weight: bold;
     background: transparent;
     margin-bottom: 0.5rem;
-    color:#898990;
+    color:var(--placeholder-color);
     outline: none;
     border: none;
 }
 .editableTitle:focus, .editableTitle:hover {
-    color: #FBFBFD;
+    color: var(--text-color);
 }
 .reflectionTextarea {
     width: 100%; 
     min-height: 300px;
     background-color: transparent;
     border: none;
-    color: #FBFBFD;
+    color: var(--text-color);
     font-size: 1.2rem;
     resize: vertical;
     outline: none;
@@ -39,7 +39,7 @@
 }
 
 .reflectionTextarea::placeholder {
-    color: #898990;
+    color: var(--placeholder-color);
 }
 /* Styles for submit button */
 .submitButton {
@@ -84,7 +84,7 @@
 .editorContent > div {
     border: none;
     outline: none;
-    color:#898990;
+    color: var(--nav-background);
     min-height: 200px;
     padding: 10px;
 }
@@ -92,7 +92,7 @@
 .editorContent  h1:focus, .editorContent h1:hover, h2:focus, h2:hover, h3:focus, h3:hover, p:focus, p:hover, li:focus, li:hover {
     border: none;
     outline: none;
-    color:#FBFBFD;
+    color: var(--text-color);
 }
 .editorContent h1 {
     font-size: 2em;
@@ -158,7 +158,7 @@
 /* Code Block Styles */
 .editorContent pre {
     background: #1e1e1e;
-    color: #d4d4d4;
+    color: var(--text-color);
     padding: 16px;
     border-radius: 8px;
     overflow-x: auto;
@@ -167,7 +167,7 @@
 }
 
 .editorContent code {
-    background: #f4f4f4;
+    background:var(--background);
     padding: 2px 6px;
     border-radius: 4px;
     font-family: 'Courier New', monospace;

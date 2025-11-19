@@ -7,7 +7,7 @@
     width: 100vw;
 }
 .statement {
-    color: #FBFBFD; 
+    color: var(--text-color); 
     font-size: 3rem;
     font-weight: bold;
     justify-content: center;
