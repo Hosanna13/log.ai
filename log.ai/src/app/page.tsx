@@ -18,6 +18,7 @@ export default function Home() {
         <Link href="/reflections/new">
           <button className="start-button">Add New Log</button>
         </Link>
+         {/* TODO - Login Screen*/}
       </div>
     </div>
   );

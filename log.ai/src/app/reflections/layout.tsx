@@ -14,6 +14,7 @@ function ReflectionsLayoutInner({ children }: { children: React.ReactNode }) {
 
     return (
         <>
+            {/* TODO -Theme Toggle Button */}
             <button onClick={toggleTheme}>
                 Switch to {theme === "light" ? "Dark" : "Light"} Mode
             </button>
