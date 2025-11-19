@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+/* Dark Theme varaibles */
+  --background:#1D1D1F;
+  --foreground:#FBFBFD;
+  --text-color: #FBFBFD;
+  --nav-background: #4a4a4a;
+  --nav-icon: #4a4a4a;
+  --nav-plus-icon:  #f4c542;
+  --nav-icon-hover: #6a6a6a;
+  --placeholder-color: #898990;
+}
+[data-theme="light"] {
+  /* Light Theme variables */
+  --background: #FBFBFD;
   --foreground: #171717;
+  --text-color: #1D1D1F;
+  --nav-background: #E2E2E2;
+  --nav-icon: #f4c542;
+  --nav-plus-icon: #1D1D1F;
+  --nav-icon-hover: #d4b430;
+  --placeholder-color: #898990;
+}
+/* Apply Theme Varaibls Unviersally */
+html, body, * {
+  color: var(--text-color);
+  background-color: var(--background);
+  transition: background-color 0.3s, color 0.3s ease;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-@theme inline {
+/* theme for everything */ 
+*, *::before, *::after {
+  color: var(--text-color);
+}
+
+
+/*@theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-foreground: var(--text-color);
   --font-sans: "SF Pro Display" -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: var(--font-geist-mono);
-}
+}*/
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   :root {
     --background: #1D1D1F;
     --foreground: #FBFBFD;
   }
-}
+}*/
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
