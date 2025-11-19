@@ -5,7 +5,6 @@
     min-height: calc(100vh - 72px);
     justify-content: center;
     align-items: center;
-    background-color: #1D1D1F;
 }
 
 .hero {
@@ -14,8 +13,9 @@
 
 .decode-text {
     font-size: 5rem;
-    font-weight: bolder;
+    color: var(--text-color);
     color: transparent;
+    font-weight: bolder;
     display: inline-block;
     position: relative;
     text-align: center;
@@ -35,7 +35,7 @@
     transform:translateX(-50%);
     top: 0;
     width: auto;
-    color: #FBFBFD;
+    color: var(--text-color);
     white-space: nowrap;
 }
 
@@ -70,7 +70,7 @@
     font-size: 1rem;
     background-color: #f4c542;
     border-radius: 30px;
-    color: #1d1d1f;
+    color: var(--text-color);
     cursor: pointer;
     transition: background-color 0.2s;
     text-decoration: none;
